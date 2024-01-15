@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+:root {
+    --bg-url: url(assets/bg-mobile.jpg);
+    --text-color: white;
+    --stroke-color: rgba(255, 255, 255, 0.50);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(255, 255, 255, 0.02);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(assets/moon-stars.svg);
+    --footer-color: rgb(247, 179, 250);
+
+    /* --bg-profile: rgb(187, 144, 189);
+    --border-profile: 50%; */
+
+    --profile-color: 1;
+
+}
+
+.light {
+    --bg-url: url(assets/bg-mobile-light.jpg);
+    --text-color: black;
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(assets/sun.svg);
+    --footer-color: rgb(124, 74, 126);
+
+    /* --bg-profile: none;
+    --border-profile: none; */
+    --profile-color: 0;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: var(--bg-url);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    height: 100vh;
+}
+
+body * {
+    color: var(--text-color);
+    font-family: Inter;
+}
+
+#container {
+    width: 100%;
+    max-width: 588px;
+    margin: 0px auto 0px; /* 56px */
+    padding: 0 24px;
+}
+
+#profile {
+    text-align: center;
+    padding: 8px;  /* 24px */
+}
+
+#profile img {
+    width: 112px;
+    margin: auto;
+    /* background-color: var(--bg-profile);
+    border-radius: var(--border-profile); */
+    filter: invert(var(--profile-color));
+}
+
+#profile p {
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+#switch {
+    width: 64px;
+    position: relative;
+    margin: 4px auto;
+}
+
+#switch button {
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border: 0;
+    border-radius: 50%;
+    background-image: var(--switch-bg-url);
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: slide-in 0.4s forwards;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#switch button:hover {
+    outline: 8px solid var(--highlight-color);
+}
+
+.light #switch button {
+    animation: slide-back 0.4s;
+}
+
+#switch span {
+    width: 64px;
+    height: 24px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    display: block;
+    border-radius: 9999px;
+}
+
+#links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+}
+
+.link a {
+    border-radius: 8px;
+    border: 1px solid var(--stroke-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px 24px;
+    background: var(--surface-color);
+    backdrop-filter: blur(4px);
+
+    text-decoration: none;
+
+    transition: background 0.2s;
+
+}
+
+.link a:hover {
+    background-color: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+
+}
+
+#social-networks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 24px 0; */
+}
+
+ion-icon {
+    font-size: 36px;
+}
+
+#social-networks a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+
+}
+
+#social-networks a:hover {
+    background-color: var(--highlight-color);
+    padding: 16px;
+    border-radius: 50%;
+    transition: background .3s;
+}
+
+footer {
+    padding: 24px;
+    text-align: center;
+    font-size: 14px;
+}
+
+footer a {
+    color: var(--footer-color);
+}
+
+
+@media (min-width: 700px) {
+    :root {
+        --bg-url: url(assets/bg-desktop.jpg);
+    }
+
+    .light {
+        --bg-url: url(assets/bg-desktop-light.jpg);
+    }
+}
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+
+    to {
+        left: 0;
+    }
+}
